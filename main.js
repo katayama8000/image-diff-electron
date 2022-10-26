@@ -191,7 +191,7 @@ ipcMain.handle("analyze", async (event, args) => {
   log.info(savePath);
   if (!fs.existsSync(savePath)) {
     // fs.mkdirSync(savePath);
-    fs.mkdir(savePath, { recursive: true }, (err) => {});
+    fs.mkdir(savePath, { recursive: true }, (err) => { });
   }
 
   const param = {};
@@ -220,7 +220,7 @@ ipcMain.handle("analyze", async (event, args) => {
       const digit = 2;
       const diffRate =
         Math.round(data * Math.pow(10, digit)) / Math.pow(10, digit);
-      // log.info("差分率2", diffRate);
+      log.info("差分率2", diffRate);
       param[matchedImages[i]] = {
         isSame: result.imagesAreSame,
         diffRate: diffRate,

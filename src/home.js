@@ -37,22 +37,26 @@ const loader = document.getElementById("loader");
 // 実行クリック時
 submit?.addEventListener("click", async () => {
   if (actualPath.textContent !== "" && expectedPath.textContent !== "") {
+    // ローディング表示
     loader.classList.remove("loaded");
     const key = await myAPI.analyze({
       actual: actualPath.textContent,
       expected: expectedPath.textContent,
     });
+    // keyには日付が入る  ex)20221026155139
     if (key) {
       myAPI.result(key);
     }
   }
 });
 
+// 最初のHTMLを読み込んだ時に実行
 document.addEventListener("DOMContentLoaded", async () => {
   const storeList = document.getElementById("storeList");
   let html = "";
 
   await myAPI.getAllStore().then((stores) => {
+    // storesはエレクトロンのstoreの配列
     const isEmptyStore =
       Object.keys(stores).length === 0 && stores.constructor === Object;
 
@@ -64,6 +68,9 @@ document.addEventListener("DOMContentLoaded", async () => {
           return obj;
         }, {});
 
+      console.log(ordered, "ordered");
+
+      // storeの配列を文字列に変換して、htmlに追加
       Object.keys(ordered).map((key) => {
         const year = key.substring(0, 4) + "年";
         const month = key.substring(4, 6) + "月";

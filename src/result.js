@@ -13,6 +13,7 @@ const loader = document.getElementById("loader");
 const mmHeight = document.getElementById("my_mm").clientHeight;
 
 myAPI.getStoreByKey(key).then((store) => {
+  // ローディングを終了
   loader.classList.remove("loaded");
 
   myAPI
@@ -52,14 +53,19 @@ myAPI.getStoreByKey(key).then((store) => {
             actual: store.actualDirectoryPath,
           })
           .then((images) => {
+            console.log(images, "images");
             const mergedImages = {};
             const users = [];
             const imageForEachUser = {};
 
+            // 今回と前回で同じ画像かどうか比較
             const matchedImages = images.actualImages.filter((actualImage) =>
               images.expectedImages.includes(actualImage)
             );
 
+            console.log(store, "store");
+
+            // 比較できるものなのかチェック
             if (matchedImages.length > 0) {
               matchedImages.map((image) => {
                 if (typeof store.results[image] === "boolean") {
@@ -117,10 +123,13 @@ myAPI.getStoreByKey(key).then((store) => {
 
             const generate = generateHtml(ordered, store);
 
+            console.log(generate, "generate");
+
             container.innerHTML = generate.container;
             diffList.innerHTML = generate.list;
             loader.classList.add("loaded");
 
+            // PDF出力
             capture?.addEventListener("click", async () => {
               loader.classList.remove("loaded");
               const paths = await myAPI.showSaveDialog(key);
@@ -184,6 +193,7 @@ const generateHtml = (images, store) => {
   let listHtml = "";
 
   Object.keys(images).map((image) => {
+
     if (images[image] === "OK") {
       containerHtml +=
         "<div class='columns'><div class='column'><p class='image-name' id='" +
