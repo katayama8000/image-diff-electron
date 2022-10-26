@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="css/spectre.min.css">
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/result.css">
+</head>
+
+<body id="body">
+	
+	<header class="navbar" id="header">
+	  <section class="navbar-section">
+		<h1 class="header-title">Cries DACT</h1>
+	  </section>
+	  <section class="navbar-section">
+	    <div class="input-group input-inline">
+			<button id="capture" class="btn btn-link home-button">PDF出力</button>
+			<button id="home" class="btn btn-link home-button">実行画面に戻る</button>
+	    </div>
+	  </section>
+	</header>
+	
+  <!-- content -->
+	<section class="content">
+		<div class="container">
+			<div class="columns">
+				<div class="column col-2 sidebar" id="sidebar">
+					<ul class="sidebar-ul">
+						<li class="list-subject">今回テストフォルダ</li>
+							<ul id="actual-directory-path-display" class="image-list-ul"></ul>
+						<li class="list-subject">前回テストフォルダ</li>
+							<ul id="expected-directory-path-display" class="image-list-ul"></ul>
+						<li class="list-subject">差分結果フォルダ</li>
+							<ul id="diff-directory-path-display" class="image-list-ul"></ul>
+						<li class="list-subject">差分結果</li>
+							<ul id="diff-list" class="image-list-ul"></ul>
+					</ul>
+				</div>
+				<div class="column container">
+					<div class="columns image-header" id="image-header">
+						<div class="column image-header-column">
+							<p class="image-header-text">今回テスト</p>
+						</div>
+						<div class="column image-header-column">
+							<p class="image-header-text">前回テスト</p>
+						</div>
+						<div class="column">
+							<p class="image-header-text">差分結果</p>
+						</div>
+					</div>
+					<div class="container scroll-container" id="container"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<div class="loader-wrap loaded" id="loader">
+		<div class="loading loading-lg"></div>
+	</div>
+
+	<div id="my_mm" style="height:100mm;display:none"></div>
+
+	<script src="./result.js"></script>
+</body>
+</html>

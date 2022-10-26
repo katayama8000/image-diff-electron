@@ -1,0 +1,48 @@
+.box {
+    background: #fbfdff;
+    border: #bcc3ce 1px solid;
+    border-radius: 4px;
+    padding: 6px 12px;
+    height: 42px;
+}
+.box p {
+margin:0;
+padding:0;
+}
+
+.folder-button {
+  width: 128px;
+  margin-left: auto;
+  padding-right: 0px;
+  margin-top: 6px;
+}
+.submit-button {
+  width: 50px;
+  margin-left: auto;
+  padding-right: 0px;
+  margin-top: 6px;
+}
+
+.main-text {
+  margin-top: 4vh;
+}
+
+.nested-list {
+  margin: 0 0 0 1rem;
+}
+
+.home-list-content {
+  margin: 0;
+}
+
+.watch-button {
+  margin: auto;
+}
+
+.store-list {
+  overflow: auto;
+  height: 22rem;
+  border: 4px solid black;
+  border-radius: 8px;
+  margin-top: 1rem;
+}

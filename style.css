@@ -1,0 +1,22 @@
+#preview{
+    margin-top: 20px;
+    width: 300px;
+    height: 100px;
+}
+
+.relative {
+    position: relative;
+    width: 720px;
+    height: 1280px;
+}
+
+.absolute {
+    position: absolute;
+    left: 0px;
+    top: 272px;
+    /* height: 176px;
+    width: 368px; */
+    height: 88px;
+    width: 184px;
+    background: rgba(0,0,0,.6);
+}

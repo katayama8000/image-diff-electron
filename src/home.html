@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="css/spectre.min.css">
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/home.css">
+</head>
+
+<body>
+	
+	<header class="navbar">
+	  <section class="navbar-section">
+ 	   <h1 class="header-title">Cries DACT</h1>
+	  </section>
+	</header>
+	
+  <!-- content -->
+	<section class="content col-9 p-centered">
+		<div class="main-text">
+			<p class="bold margin-0">今回テストフォルダと前回テストフォルダを指定し実行してください</p>
+			<p>複数のファイルを一度に差分チェックすることができます。</p>
+		</div>
+		<!-- form input control -->
+		<div>今回テスト</div>
+		<div class="box">
+			<p id="actual-path"></p>
+		</div>
+		<div class="folder-button"><button id="actual">フォルダを指定</button></div>
+
+
+		<!-- form input control -->
+		<div>前回テスト</div>
+		<div class="box">
+			<p id="expected-path"></p>
+		</div>
+		<div class="folder-button"><button id="expected">フォルダを指定</button></div>
+
+		<!-- <div class="column col-1 col-ml-auto margin-top-1rem"><button class="btn btn-primary" id="submit">実行</button></div> -->
+		<div class="submit-button"><button class="btn btn-primary" id="submit">実行</button></div>
+
+		<div id="storeList" class="container store-list"></div>
+	</section>
+
+	<div class="loader-wrap loaded" id="loader">
+		<div class="loading loading-lg"></div>
+	</div>
+	
+	<script src="./home.js"></script>
+</body>
+</html>

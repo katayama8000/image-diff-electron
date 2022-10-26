@@ -1,0 +1,59 @@
+.result-image {
+    width: 100%;
+}
+
+.scroll-container {
+    height: 90vh;
+    overflow-y: auto;
+}
+
+.sidebar {
+    /* position: sticky; */
+    top: 9vh;
+    height: 93vh;
+    overflow-y: auto;
+}
+.sidebar-ul {
+    margin: 0.8rem 0 0.8rem 0;
+}
+
+.image-list-ul {
+    margin: 0 0 0 0.6rem;
+}
+
+.image-header {
+    position: sticky;
+    top: 7vh;
+    text-align: center;
+    box-shadow: 3px 0px 2px rgb(0 0 0 / 50%);
+    background-color: #f2f2f2;
+}
+.image-header-column {
+    border-right: 1px solid #3b4351;
+}
+.image-header-text {
+    height: 0px;
+}
+
+.image-name {
+    height: 0px;
+    font-size: small;
+    margin: 0 0 1rem 0;
+    font-weight: bold;
+}
+.image-category {
+    margin-right: 1rem;
+}
+
+.ng-color {
+    color: #a3272f;
+}
+.ok-color {
+    color: #A6CD02;
+}
+.new-color {
+    color: #144496
+}
+.delete-color {
+    color: #aab814
+}

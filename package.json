@@ -1,0 +1,84 @@
+{
+  "name": "dact",
+  "version": "0.1.0",
+  "description": "diff tool",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "build:mac": "electron-builder --mac --x64 --dir",
+    "build:win": "electron-builder --win --x64 --dir",
+    "build:mac:installer": "electron-builder --mac --x64",
+    "build:win:installer": "electron-builder --win --x64"
+  },
+  "build": {
+    "appId": "com.cries.dact",
+    "productName": "CriesDACT",
+    "files": [
+      "main.js",
+      "src",
+      "package.json",
+      "package-lock.json"
+    ]
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.63",
+    "@electron-forge/maker-deb": "^6.0.0-beta.63",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.63",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
+    "@electron-forge/maker-zip": "^6.0.0-beta.63",
+    "electron": "^17.0.0",
+    "electron-builder": "^23.0.3"
+  },
+  "dependencies": {
+    "@devicefarmer/adbkit": "^3.2.1",
+    "adbkit": "^2.11.1",
+    "electron-log": "^4.4.6",
+    "electron-reload": "^2.0.0-alpha.1",
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-store": "^8.0.1",
+    "fast-xml-parser": "^4.0.3",
+    "fix-path": "^3.0.0",
+    "glob": "^7.2.0",
+    "html-to-image": "^1.9.0",
+    "img-diff-js": "^0.5.2",
+    "jpeg-js": "^0.4.3",
+    "jsdom": "^19.0.0",
+    "node-html-to-image": "^3.2.4",
+    "pngjs": "^6.0.0",
+    "reg-cli": "^0.17.6",
+    "shell-path": "^3.0.0",
+    "xml2js": "^0.4.23"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "7_electron_test"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  }
+}
