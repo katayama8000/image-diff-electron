@@ -77,6 +77,7 @@ app.whenReady().then(() => {
 
   createWindow(mainWindow, previousUrl);
 
+  // pdf出力の際のダイアログを表示
   ipcMain.handle("show-save-dialog", async (event, args) => {
     const win = BrowserWindow.fromWebContents(event.sender);
 
@@ -238,6 +239,8 @@ ipcMain.handle("analyze", async (event, args) => {
   return date;
 });
 
+
+// ダイアログを開く
 ipcMain.handle("open-by-button", async () => {
   return dialog
     .showOpenDialog({
@@ -252,21 +255,25 @@ ipcMain.handle("open-by-button", async () => {
     .catch((err) => console.log(`Error: ${err}`));
 });
 
+// 個別の画像を取得
 ipcMain.handle("get-images", async (event, args) => {
   log.info("handle get-images", args);
   return findImages(args.expected, args.actual);
 });
 
+// storeからデータを全て取得
 ipcMain.handle("get-all-store", async () => {
   log.info("handle get-all-store");
   return store.store;
 });
 
+// storeからの個別データを取得
 ipcMain.handle("get-store-by-key", async (event, args) => {
   log.info("handle get-store-by-key");
   return store.get(args);
 });
 
+// pathを取得
 ipcMain.handle("check-directory", async (event, args) => {
   log.info("handle check-directory", args);
   const result = {};
@@ -299,6 +306,7 @@ const findImages = (expectedDir, actualDir) => {
   };
 };
 
+// PNGのピクセルを取得
 const getPngWholePixel = (filename) => {
   return new Promise((resolve) => {
     fs.createReadStream(filename)
@@ -309,6 +317,7 @@ const getPngWholePixel = (filename) => {
   });
 };
 
+// JPEGのピクセルを取得
 const getJpegWholePixel = async (filename) => {
   const rawBuffer = await fs.promises.readFile(filename);
   const imageData = jpeg.decode(rawBuffer);
