@@ -1,4 +1,4 @@
-let params = new URLSearchParams(location.search);
+const params = new URLSearchParams(location.search);
 const key = params.get("key");
 
 const container = document.getElementById("container");
@@ -23,8 +23,8 @@ myAPI.getStoreByKey(key).then((store) => {
       diff: store.diffDirectoryPath,
     })
     .then((checkResult) => {
-      var canDisplay = true;
-      var errorText = "";
+      let canDisplay = true;
+      let errorText = "";
 
       if (!checkResult.actual) {
         canDisplay = false;
@@ -219,7 +219,7 @@ const generateHtml = (images, store) => {
         '"></div>' +
         "</div>";
     } else if (images[image] === "NG") {
-      var imageCategory = "";
+      let imageCategory = "";
       if (typeof store.results[image] === "boolean") {
         imageCategory = "'><span class='image-category ng-color'>NG</span>";
       } else {
@@ -285,7 +285,7 @@ const generateHtml = (images, store) => {
         "</div>";
     }
 
-    // リスト部
+    // 左のリスト
     listHtml += "<li class='list-content'>";
     if (images[image] === "OK") {
       listHtml += "<span class='image-category ok-color'>OK</span>";
@@ -314,6 +314,6 @@ const generateHtml = (images, store) => {
   return { container: containerHtml, list: listHtml };
 };
 
-const pxToMm = function (px) {
+const pxToMm = (px) => {
   return Math.floor(px / (mmHeight / 100));
 };
